@@ -1,0 +1,17 @@
+
+.alphabet {
+  position: absolute;
+  display: block;
+	width: 30px;
+	height: 30px;
+/*  padding-top: 4px;*/
+	font-size: 24px;
+	font-family: 'Henny Penny', cursive;
+/*  background-color: #800;*/
+	color: #FC0;
+/*  border-color: #FC0;*/
+/*  border-style: solid;*/
+/*  border-width: 2px;*/
+/*  border-radius: 50%;*/
+	text-align: center;
+}
