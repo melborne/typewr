@@ -1,5 +1,5 @@
 require 'app'
-require 'lib/backend.rb'
+require 'typewr/backend.rb'
 
 use Typewr::Backend
 
