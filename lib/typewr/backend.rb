@@ -1,4 +1,5 @@
 require 'faye/websocket'
+require 'json'
 
 module Typewr
   class Backend
@@ -15,6 +16,7 @@ module Typewr
         ws.on :open do |event|
           p [:open, ws.object_id]
           @clients << ws
+          @clients.each { |client| client.send client_count }
         end
 
         ws.on :message do |event|
@@ -25,11 +27,16 @@ module Typewr
         ws.on :close do |event|
           p [:close, ws.object_id, event.code]
           @clients.delete(ws).tap { ws = nil }
+          @clients.each { |client| client.send client_count }
         end
         ws.rack_response
       else
         @app.call(env)
       end
+    end
+
+    def client_count
+      {count: @clients.size}.to_json
     end
   end
 end
