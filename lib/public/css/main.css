@@ -36,3 +36,16 @@
   margin-left: 5px;
   font-size: 14pt;
 }
+
+#footer {
+  padding: 0 10px;
+  height: 30px;
+}
+
+#footer #credit {
+  float: left;
+}
+
+#footer #descript {
+  float: right;
+}
