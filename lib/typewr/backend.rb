@@ -1,4 +1,5 @@
 require 'faye/websocket'
+require 'json'
 
 module Typewr
   class Backend
@@ -15,11 +16,14 @@ module Typewr
         ws.on :open do |event|
           p [:open, ws.object_id]
           @clients << ws
+          @color = color_picker.next
         end
 
         ws.on :message do |event|
-          p [:message, event.data]
-          @clients.each { |client| client.send event.data }
+          # p [:message, event.data]
+          data = JSON.parse(event.data)
+          data.update(color: @color)
+          @clients.each { |client| client.send data.to_json }
         end
 
         ws.on :close do |event|
@@ -30,6 +34,10 @@ module Typewr
       else
         @app.call(env)
       end
+    end
+
+    def color_picker
+      @@colors ||= %w(#FFCC00 #C71585 #4169E1 #32CD32 #FF1493 #006400 #D2691E #191970 #800080).cycle
     end
   end
 end
