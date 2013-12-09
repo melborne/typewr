@@ -18,7 +18,7 @@ module Typewr
         end
 
         ws.on :message do |event|
-          p [:message, event.data]
+          # p [:message, event.data]
           @clients.each { |client| client.send event.data }
         end
 
