@@ -6,7 +6,12 @@
     %title Typewr
     %link{rel:'stylesheet', href:'css/main.css'}
   %body
-    
+    %header
+      .counter
+        %input#clients{type:"text", disable:"disable", value:0}
+        %label#clientsLabel{:for => "clients"} Chatterers
+      %p#brand Typewr
+
     .base
       - (33..127).each do |code|
         %span.alphabet{class:"#{code}"}= code.chr
