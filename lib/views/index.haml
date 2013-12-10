@@ -17,13 +17,18 @@
         %span.alphabet{class:"#{code}"}= code.chr
 
     #footer
-      %p#credit
+      .left
         %span ©
         %a{href:'http://melborne.github.io'} hp12c
         %span 2013
-      %p#descript Just type as you like.
+      .right
+        %span.caution Volume:
+        %input#volume{type:"range", value:"50", max:"100", min:"0"}
 
 
 %script{src:'js/jquery-2.0.3.min.js', type:'text/javascript'}
 %script{src:'js/footerFixed.js', type:'text/javascript'}
+%script{src:'//cwilso.github.com/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js', type:'text/javascript'}
+%script{src:'js/buffer-loader.js', type:'text/javascript'}
+%script{src:'js/sound.js', type:'text/javascript'}
 %script{src:'js/application.js', type:'text/javascript'}

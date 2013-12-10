@@ -42,10 +42,10 @@
   height: 30px;
 }
 
-#footer #credit {
+#footer .left {
   float: left;
 }
 
-#footer #descript {
+#footer .right {
   float: right;
 }
